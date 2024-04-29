@@ -1,0 +1,38 @@
+name: Build and Send APK
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.6' # Adjust version as needed
+
+      - name: Install dependencies
+        run: flutter pub get
+      
+      - name: Build APK
+        run: flutter build apk --release
+      
+      - name: Send APK via email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.shadrackmballah80@gamil.com }}
+          password: ${{ secrets.Shadrack2017@ }}
+          subject: New APK Build
+          body: Here is the latest APK build.
+          from: shadrackmballah80@gamil.com
+          to: shadrackmballah74@gmail.com
+          attachments: ./build/app/outputs/flutter-apk/app-release.apk
