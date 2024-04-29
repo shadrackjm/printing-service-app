@@ -24,15 +24,8 @@ jobs:
       - name: Build APK
         run: flutter build apk --release
       
-      - name: Send APK via email
-        uses: dawidd6/action-send-mail@v3
+      - name: Upload APK to Google Drive
+        uses: jakejarvis/google-drive-upload@v2
         with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
-          subject: New APK Build
-          body: Here is the latest APK build.
-          from: mballahshadrack80@gamil.com
-          to: shadrackmballah74@gmail.com
-          attachments: ./build/app/outputs/flutter-apk/app-release.apk
+          file: ./build/app/outputs/flutter-apk/app-release.apk
+          token: ${{ secrets.GOOGLE_DRIVE_TOKEN }}
