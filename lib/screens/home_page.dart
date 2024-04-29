@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
                   (route) => false);
             },
             icon: const Icon(
-              Icons.logout,
+              Icons.login,
             ),
           ),
         ],
