@@ -40,3 +40,6 @@ jobs:
           from: mballahshadrack80@gmail.com
           to: shadrackmballah80@gmail.com
           attachments: ./app-release.zip
+          priority: low
+          nodemailerlog: false
+          nodemailerdebug: false
