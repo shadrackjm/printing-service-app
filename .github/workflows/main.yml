@@ -33,6 +33,6 @@ jobs:
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: New APK Build
           body: Here is the latest APK build.
-          from: shadrackmballah80@gamil.com
+          from: mballahshadrack80@gamil.com
           to: shadrackmballah74@gmail.com
           attachments: ./build/app/outputs/flutter-apk/app-release.apk
